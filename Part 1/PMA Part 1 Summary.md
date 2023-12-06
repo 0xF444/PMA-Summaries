@@ -15,7 +15,7 @@ Obfuscation &#8594; Hiding what the author wants to be executed.
 
 Packing &#8594; A way of obfuscation by executing a wrapper before executing the main executable.
 
-> **Note**: A wrapper is like the "frontier" of the program so it would thwart PE Viewers![Wrapper Example](image-1.png)<br>Legitimate programs have many strings contained within them, so if the program has little to no strings then this could be an indicator.
+> **Note**: A wrapper is like the "frontier" of the program so it would thwart PE Viewers![Wrapper Example](./Snippets/Wrappers.png)<br>Legitimate programs have many strings contained within them, so if the program has little to no strings then this could be an indicator.
 
 When packed programs are run, the wrapper is first run to decompress the actual executable.
 
@@ -54,20 +54,27 @@ When these functions are called, they execute **within** the library itself.
 ### PE Headers
 
 The PE header stores information about every library that will be loaded and every function that will be used, this allows us to guess the malware's functionality.
+
 - We can explore these functions by using **Dependency Walker**.
 - Note: We can import functions by their "ordinal number" in the DLL export table.
   - Ordinal numbers are just "positions" that are statically predefined in the DLL export table ![NTDLL.DLL example](https://filestore.community.support.microsoft.com/api/images/ea1825f0-0055-47a7-bbff-0d86e8e11ed3)
 
 ---
+
 ### DLLs and EXEs
 
 DLLs and EXEs can export functions but DLLs *implements* functions that can be exported to an exectuable.
+
 - Programmers can also change of the exported function to the executable itself, which can cause confusion.
+
 >Note: Functions are executed by their **address**.
 
 - We can view these export information by **Dependency Walker**.
+
 ---
+
 ### PE File Headers and Sections
+
 `.text` &#8594; It contains CPU instructions, it is the only section that executes and it should contain code.
 `.rdata` &#8594; It contains import and export data, read-only data.
 >Note: This section can contain `.idata` for imports and `.edata` for exports.
@@ -82,5 +89,7 @@ DLLs and EXEs can export functions but DLLs *implements* functions that can be e
 - Size of Raw Data shows the space of the section on the disk.
 These values must be either equal or be slightly different, if the `.text` section on memory is less than its size on disk or vice versa &#8594; This is often indicative of packing (entropy).
 We can view resources (`.rsrc` section) with **Resource Hacker**.
+
 ---
+
 ## Chapter 2: Malware Analysis in Virtual Machines
