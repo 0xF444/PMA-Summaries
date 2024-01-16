@@ -1,5 +1,7 @@
 # <center>Part 1 Summary: Basic Analysis</center>
-
+# Outline
++ [[#Chapter 1 Basic Static Techniques]]
++ [[#Chapter 2 Malware Analysis in Virtual Machines]]
 ## Chapter 1: Basic Static Techniques
 
 &#8594; Use AV solutions to get an insight or a clue, as other people may have investigated your suspected executable.
@@ -7,7 +9,7 @@
 &#8594; Use *hashing* to uniquely identify samples or "label" them.
 
 &#8594; Search through the *strings* of a program to get an idea of what the executable does
->**Note**: Strings are either stored in ASCII or Unicode, ASCII is stored 1 byte at a time while unicode is stored in 2 bytes, each with a null terminator (0x00)
+>**Note**: Strings are either stored in ASCII or Unicode, ASCII is stored 1 byte at a time while Unicode is stored in 2 bytes, each with a null terminator (0x00)
 
 &#8594; Packing and Obfuscation makes analysis more difficult.
 
@@ -93,3 +95,5 @@ We can view resources (`.rsrc` section) with **Resource Hacker**.
 ---
 
 ## Chapter 2: Malware Analysis in Virtual Machines
+
+
